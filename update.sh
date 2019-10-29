@@ -18,7 +18,7 @@ for version in "${versions[@]}"; do
 	debianVariant="${debianVariants[$version]:-$defaultDebianVariant}"
 	debianSuite="${debianVariant%%-*}" # "stretch", etc
 
-	cp -a .template.Debian/docker-entrypoint.sh "$version/docker-entrypoint.sh"
+	cp -a .template.entrypoint/docker-entrypoint.sh "$version/docker-entrypoint.sh"
 
 	fullVersion="$(
 		curl -fsSL "https://repo.mysql.com/apt/debian/dists/$debianSuite/mysql-$version/binary-amd64/Packages.gz" \
